@@ -1,3 +1,25 @@
 // Place all the styles related to the definitions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar_dictionary {
+  background-color: #C52F24;
+  height: 6em;
+  a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+    top: 2.5em;
+    font-size: 1.3em;
+  }
+  li {
+
+    list-style: none;
+  }
+}
+
+
+#word {
+  text-decoration: none;
+  color: black;
+  font-size: 2em;
+}

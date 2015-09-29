@@ -1,5 +1,12 @@
+<div class='navbar header navbar_dictionary'>
+  <div class='nav navbar-brand'><%= image_tag "icon_rails.png" %></div>
+    <ul>
+  <li><%= link_to 'Add a word', new_definition_path %></li>
+</ul>
+</div>
+<div class='container'>
 <h1>New Definition</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', definitions_path %>
+</div>

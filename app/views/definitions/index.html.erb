@@ -1,37 +1,37 @@
 
 <div class='navbar header navbar_dictionary'>
-  <div class='nav navbar-brand'><%= image_tag "icon_rails.png" %></div>
-    <ul>
-  <li id='new_word'><%= link_to 'Add a word', new_definition_path %></li>
-</ul>
-<form method="get" action="<%= definitions_path %>" class="navbar-form navbar-right" role="search">
+  <a href="<%=definitions_path%>" class='nav navbar-brand'><%= image_tag "icon_rails.png" %></a>
+  <ul>
+    <li id='new_word'><%= link_to 'Add a word', new_definition_path %></li>
+  </ul>
+  <form method="get" action="<%= definitions_path %>" class="navbar-form navbar-right" role="search">
     <input type="text" class="form-control" placeholder="Search" name="search">
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
 </div>
 <p id="notice"><%= notice %></p>
-  <div class='container'>
-    <div class="col-md-6">
-<h1 class="row">Definitions</h1>
+<div class='container'>
+  <div class="col-md-6">
+    <h1 class="row">Definitions</h1>
 
 
-  <% @definitions.each do |definition| %>
+    <% @definitions.each do |definition| %>
 
 
-  <div class="row">
-  <span>
-    <a id='word' href="<%= definition_path(definition) %>" ><%= definition.word %></a>
-    <%= link_to 'edit word', edit_definition_path(definition) %>
-    <%= link_to 'delete word', definition, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </span>
+    <div class="row">
+      <span>
+        <a id='word' href="<%= definition_path(definition) %>" ><%= definition.word %></a>
+        <%= link_to 'edit word', edit_definition_path(definition) %>
+        <%= link_to 'delete word', definition, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
+    </div>
+    <p class="row">
+      <%= definition.meaning %>
+    </p>
+
+
+    <% end %>
+    <%= link_to_previous_page @definitions, 'Previous' %>
+    <%= link_to_next_page @definitions, 'Next Page' %>
+  </div>
 </div>
-  <p class="row">
-    <%= definition.meaning %>
-  </p>
-
-
-  <% end %>
-  <%= link_to_previous_page @definitions, 'Previous' %>
-  <%= link_to_next_page @definitions, 'Next Page' %>
-  </div>
-  </div>

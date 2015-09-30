@@ -1,5 +1,5 @@
 <div class='navbar header navbar_dictionary'>
-  <div class='nav navbar-brand'><%= image_tag "icon_rails.png" %></div>
+  <a href="<%=definitions_path%>" class='nav navbar-brand'><%= image_tag "icon_rails.png" %></a>
   <ul>
     <li><%= link_to 'Add a word', new_definition_path %></li>
   </ul>
@@ -11,11 +11,11 @@
     <div class="row">
       <span>
         <span id='word'><%=@definition.word %></span>
-        <%= link_to 'Edit', edit_definition_path(@definition) %> 
+        <%= link_to 'Edit', edit_definition_path(@definition) %>
       </span>
     </div>
     <p class="row">
       <%= @definition.meaning %>
     </p>
-<%= link_to 'Back', definitions_path %>
+    <%= link_to 'Back', definitions_path %>
   </div>

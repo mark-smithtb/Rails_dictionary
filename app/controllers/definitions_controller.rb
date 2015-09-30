@@ -5,14 +5,13 @@ class DefinitionsController < ApplicationController
   # GET /definitions.json
   def index
     @definitions = Definition.all.page(params[:page])
-    if params[:search]
-      search = params[:search]
-      @definitions = Definition.search(search).page(params[:page])
-    else
-      @definitions = Definition.all.page(params[:page])
-    end
   end
 
+  def search
+    @search = params[:search]
+    @definitions = Definition.search(@search).page(@search)
+    render :index
+  end
   # GET /definitions/1
   # GET /definitions/1.json
   def show

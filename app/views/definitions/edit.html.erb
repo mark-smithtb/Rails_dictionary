@@ -1,14 +1,14 @@
 <div class='navbar header navbar_dictionary'>
-  <a href="<%=definitions_path%>" class='nav navbar-brand'><%= image_tag "icon_rails.png" %></a>
-  <ul>
-    <li><%= link_to 'Add a word', new_definition_path %></li>
-  </ul>
+  <div class='nav navbar-brand'><a href="<%=definitions_path%>"><%= image_tag "icon_rails.png" %></a></div>
+    <ul>
+  <li><%= link_to 'Add a word', new_definition_path %></li>
+</ul>
 </div>
 <div class='container'>
-  <h1>Editing Definition</h1>
+<h1>Editing Definition</h1>
 
-  <%= render 'form' %>
+<%= render 'form' %>
 
-  <%= link_to 'Show', @definition %> |
-  <%= link_to 'Back', definitions_path %>
+<%= link_to 'Show', @definition %> |
+<%= link_to 'Back', definitions_path %>
 </div>

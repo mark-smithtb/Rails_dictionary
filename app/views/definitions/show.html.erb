@@ -8,8 +8,12 @@
         <%= link_to 'Edit', edit_definition_path(@definition) %>
       </span>
     </div>
+    <p class="row"><%= @definition.word_type %></p>
     <p class="row">
       <%= @definition.meaning %>
+    </p>
+    <p class="row">
+      Example: <%= @definition.example %>
     </p>
     <%= link_to 'Back', definitions_path %>
   </div>

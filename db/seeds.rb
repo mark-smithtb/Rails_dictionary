@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def definition_create
-Definition.create(word: Faker::Lorem.word, meaning: Faker::Lorem.paragraph)
+word_types = ['verb', 'noun', 'adjective','adverb']
+Definition.create(word: Faker::Lorem.word, meaning: Faker::Lorem.paragraph, word_type: word_types.sample, example: Faker::Lorem.sentence)
 end
 
 if Definition.count < 100

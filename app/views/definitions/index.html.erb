@@ -1,5 +1,3 @@
-
-
 <p id="notice"><%= notice %></p>
 <div class='container'>
   <div class="col-md-6">
@@ -12,13 +10,15 @@
         <%= link_to 'delete word', definition, method: :delete, data: { confirm: 'Are you sure?' } %>
       </span>
     </div>
+    <p class="row"><%= definition.word_type %></p>
     <p class="row">
       <%= definition.meaning %>
     </p>
-
-
+    <p class="row">
+      Example: <%= definition.example %>
+    </p>
     <% end %>
-    <%= link_to_previous_page @definitions, 'Previous' %>
-    <%= link_to_next_page @definitions, 'Next Page' %>
+    <%= link_to_previous_page @definitions, 'Previous', params: {search: @search} %>
+    <%= link_to_next_page @definitions, 'Next Page', params: {search: @search} %>
   </div>
 </div>

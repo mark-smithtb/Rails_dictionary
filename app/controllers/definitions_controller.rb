@@ -6,9 +6,10 @@ class DefinitionsController < ApplicationController
   def index
     @definitions = Definition.all.page(params[:page])
     if params[:search]
-      @definitions = Definition.search(params[:search]).page(params[:page])
+      search = params[:search]
+      @definitions = Definition.search(search).page(params[:page])
     else
-      @definitions = Definition.all..page(params[:page])
+      @definitions = Definition.all.page(params[:page])
     end
   end
 

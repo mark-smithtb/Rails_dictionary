@@ -6,5 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+def definition_create
 Definition.create(word: Faker::Lorem.word, meaning: Faker::Lorem.paragraph)
+end
+
+if Definition.count < 100
+  100.times.map {definition_create}
+end

@@ -18,9 +18,9 @@
     <p class="row">
       Examples
     </p>
-    <% definition.examples do |example| %>
+    <% definition.examples.each do |example| %>
     <p>
-      <%= example.examples %>
+      <%= example.example %>
     </p>
     <%end%>
     <% end %>

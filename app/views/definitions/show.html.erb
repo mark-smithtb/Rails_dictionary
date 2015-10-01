@@ -13,7 +13,13 @@
       <%= @definition.meaning %>
     </p>
     <p class="row">
-      Example:
+      Examples
     </p>
+    <% @definition.examples.each do |example| %>
+    <p>
+      <%= example.example %>
+      <%= link_to '', example, method: :delete, data: { confirm: 'Are you sure?'}, class: "glyphicon glyphicon-fire fire" %>
+    </p>
+    <%end%>
     <%= link_to 'Back', definitions_path %>
   </div>

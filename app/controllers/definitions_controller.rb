@@ -19,7 +19,6 @@ class DefinitionsController < ApplicationController
 
   # GET /definitions/new
   def new
-    x =
     @definition = Definition.new
     @definition.examples.build
   end

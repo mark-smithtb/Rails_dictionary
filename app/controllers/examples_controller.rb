@@ -4,7 +4,6 @@ class ExamplesController < ApplicationController
   end
 
   def new
-    @definition = params[:defin]
     @example = Example.new
   end
 
@@ -13,12 +12,20 @@ class ExamplesController < ApplicationController
 
       respond_to do |format|
         if @example.save
-          format.html { redirect_to @example, notice: 'Example was successfully created.' }
+          format.html { redirect_to definition_path(id: @example.definition_id), notice: 'Example was successfully created.' }
           format.json { render :show, status: :created, location: @example }
         else
           format.html { render :new }
           format.json { render json: @example.errors, status: :unprocessable_entity }
         end
+      end
+    end
+
+    def destroy
+      @example.destroy
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Example was successfully destroyed.' }
+        format.json { head :no_content }
       end
     end
 

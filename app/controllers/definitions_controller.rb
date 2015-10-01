@@ -19,7 +19,9 @@ class DefinitionsController < ApplicationController
 
   # GET /definitions/new
   def new
+    x =
     @definition = Definition.new
+    2.times (@definition.examples.build)
   end
 
   # GET /definitions/1/edit
@@ -74,6 +76,6 @@ class DefinitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def definition_params
-      params.require(:definition).permit(:word, :meaning, :word_type, :example)
+      params.require(:definition).permit(:word, :meaning, :word_type, examples_attributes: [:id, :example])
     end
 end

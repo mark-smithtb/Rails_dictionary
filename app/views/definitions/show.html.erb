@@ -4,7 +4,7 @@
   <div class="col-md-6">
     <div class="row">
       <span>
-        <span id='word'><%=@definition.word %></span>
+        <span id='word'><%= @definition.word %></span>
         <%= link_to 'Edit', edit_definition_path(@definition) %>
       </span>
     </div>
@@ -13,7 +13,7 @@
       <%= @definition.meaning %>
     </p>
     <p class="row">
-      Example: <%= @definition.example %>
+      Example:
     </p>
     <%= link_to 'Back', definitions_path %>
   </div>

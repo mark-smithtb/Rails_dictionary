@@ -8,6 +8,7 @@
         <a id='word' href="<%= definition_path(definition) %>" ><%= definition.word %></a>
         <%= link_to 'edit word', edit_definition_path(definition) %>
         <%= link_to 'delete word', definition, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'add example', new_example_path(@example, :definition => definition.id) %>
       </span>
     </div>
     <p class="row"><%= definition.word_type %></p>
@@ -15,8 +16,13 @@
       <%= definition.meaning %>
     </p>
     <p class="row">
-      Example: <%= definition.example %>
+      Examples
     </p>
+    <% definition.examples do |example| %>
+    <p>
+      <%= example.examples %>
+    </p>
+    <%end%>
     <% end %>
     <%= link_to_previous_page @definitions, 'Previous', params: {search: @search} %>
     <%= link_to_next_page @definitions, 'Next Page', params: {search: @search} %>

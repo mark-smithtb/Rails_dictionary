@@ -5,7 +5,7 @@ class Definition < ActiveRecord::Base
   accepts_nested_attributes_for :examples
 paginates_per 10
   def self.search(search)
-    where("word OR meaning LIKE ?" , "%#{search}%")
+    where("word LIKE ? OR meaning LIKE ?" , "%#{search}%" , '#{search}')
   end
 
 end

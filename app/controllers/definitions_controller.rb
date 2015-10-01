@@ -21,7 +21,7 @@ class DefinitionsController < ApplicationController
   def new
     x =
     @definition = Definition.new
-    2.times (@definition.examples.build)
+    @definition.examples.build
   end
 
   # GET /definitions/1/edit

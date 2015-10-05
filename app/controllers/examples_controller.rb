@@ -4,6 +4,7 @@ class ExamplesController < ApplicationController
   end
 
   def new
+    @definition_id = params['definition']
     @example = Example.new
   end
 
@@ -13,7 +14,7 @@ class ExamplesController < ApplicationController
       respond_to do |format|
         if @example.save
           format.html { redirect_to definition_path(id: @example.definition_id), notice: 'Example was successfully created.' }
-          format.json { render :show, status: :created, location: @example }
+          format.json { render json: :index, status: :created, }
         else
           format.html { render :new }
           format.json { render json: @example.errors, status: :unprocessable_entity }

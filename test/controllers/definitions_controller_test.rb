@@ -3,6 +3,7 @@ require 'test_helper'
 class DefinitionsControllerTest < ActionController::TestCase
   setup do
     @definition = definitions(:one)
+    @search = 'q'
   end
 
   test "should get index" do
@@ -17,9 +18,11 @@ class DefinitionsControllerTest < ActionController::TestCase
   end
 
   test "should create definition" do
-    assert_difference('Definition.count') do
+      count_before = Definition.count
       post :create, definition: { meaning: @definition.meaning, word: @definition.word }
-    end
+      count_after = Definition.count
+
+      assert_equal count_before + 1, count_after
 
     assert_redirected_to definition_path(assigns(:definition))
   end
@@ -43,7 +46,12 @@ class DefinitionsControllerTest < ActionController::TestCase
     assert_difference('Definition.count', -1) do
       delete :destroy, id: @definition
     end
-
     assert_redirected_to definitions_path
   end
+
+  test "should search" do
+  get :search, search: @search
+  assert_not_nil assigns(:definitions)
+  end
+
 end

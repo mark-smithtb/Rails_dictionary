@@ -9,7 +9,7 @@ class Definition < ActiveRecord::Base
   end
 
   def fancy?
-    self.word.length >= 16
+    self.word.length > 16
   end
 
 end

@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  word: Ruby
-  meaning: MyText
+  word: Ruby Gems
+  meaning: MyTextb
 
 two:
-  word: Sinatra
+  word: Sinatra Songs
   meaning: MyText

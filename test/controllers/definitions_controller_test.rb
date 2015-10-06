@@ -1,9 +1,11 @@
 require 'test_helper'
 
 class DefinitionsControllerTest < ActionController::TestCase
+  include FactoryGirl::Syntax::Methods
+
   setup do
     @definition = definitions(:one)
-    @search = 'q'
+    @search = 'Ruby'
   end
 
   test "should get index" do
@@ -19,7 +21,7 @@ class DefinitionsControllerTest < ActionController::TestCase
 
   test "should create definition" do
       count_before = Definition.count
-      post :create, definition: { meaning: @definition.meaning, word: @definition.word }
+      post :create, definition: { meaning: @definition.meaning, word: 'foo' }
       count_after = Definition.count
 
       assert_equal count_before + 1, count_after
@@ -50,8 +52,9 @@ class DefinitionsControllerTest < ActionController::TestCase
   end
 
   test "should search" do
-  get :search, search: @search
-  assert_not_nil assigns(:definitions)
+  get :search, search: "Ruby"
+  expected_definition = [definitions(:one)]
+  assert_equal expected_definition, assigns(:definitions)
   end
 
 end

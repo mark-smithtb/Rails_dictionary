@@ -1,4 +1,5 @@
 class DefinitionsController < ApplicationController
+  before_filter :ensure_logged_in, only: [:new, :edit, :update, :destroy]
   before_action :set_definition, only: [:show, :edit, :update, :destroy]
 
   # GET /definitions
@@ -77,4 +78,5 @@ class DefinitionsController < ApplicationController
     def definition_params
       params.require(:definition).permit(:word, :meaning, :word_type, examples_attributes: [:id, :example])
     end
+
 end

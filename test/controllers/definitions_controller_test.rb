@@ -5,7 +5,6 @@ class DefinitionsControllerTest < ActionController::TestCase
 
   setup do
     @definition = definitions(:one)
-    @search = 'Ruby'
   end
 
   test "should get index" do
@@ -40,7 +39,7 @@ class DefinitionsControllerTest < ActionController::TestCase
   end
 
   test "should update definition" do
-    patch :update, id: @definition, definition: { meaning: @definition.meaning, word: @definition.word }
+    patch :update, id: @definition, definition: { meaning: @definition.meaning, word: "something" }
     assert_redirected_to definition_path(assigns(:definition))
   end
 

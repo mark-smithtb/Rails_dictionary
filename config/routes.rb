@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 end
 
   resources :examples
+  resources :sessions do
+    collection do
+      delete :destroy
+    end
+  end
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

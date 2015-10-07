@@ -1,4 +1,5 @@
 class ExamplesController < ApplicationController
+  before_filter :ensure_logged_in
   before_action :set_example, only: [:show, :edit, :update, :destroy]
   def show
   end
@@ -14,7 +15,7 @@ class ExamplesController < ApplicationController
       respond_to do |format|
         if @example.save
           format.html { redirect_to definition_path(id: @example.definition_id), notice: 'Example was successfully created.' }
-          format.json { render json: :index, status: :created, }
+          format.json { render json: :index, status: :created }
         else
           format.html { render :new }
           format.json { render json: @example.errors, status: :unprocessable_entity }

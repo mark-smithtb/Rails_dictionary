@@ -15,3 +15,7 @@ end
 if Definition.count < 100
   100.times.map {definition_create}
 end
+
+User.create(first_name: 'Gavin', last_name: 'Stark', email: 'gavin@example.com', password: 'sekret')
+User.create(first_name: 'Jason', last_name: 'Perry', email: 'jason@example.com', password: 'alsosekret')
+User.create(first_name: 'Toni', last_name: 'Aliberti', email: 'toni@example.com', password: 'supersekret')
